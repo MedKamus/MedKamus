@@ -13,7 +13,7 @@ const config: DocsThemeConfig = {
         alt={process.env.NEXT_PUBLIC_WEB_TITLE}
       />
       <span style={{ marginLeft: ".4em", fontWeight: 700 }}>
-        {process.env.NEXT_PUBLIC_WEB_TITLE.toLocaleUpperCase()}
+        {process.env.NEXT_PUBLIC_WEB_TITLE}
       </span>
     </>
   ),
@@ -72,7 +72,7 @@ const config: DocsThemeConfig = {
     text: (
       <span>
         {new Date().getFullYear()} ©{" "}
-        <a href={process.env.NEXT_PUBLIC_BASE_URL} target="_blank">
+        <a href={process.env.VERCEL_URL} target="_blank">
           {process.env.NEXT_PUBLIC_WEB_TITLE}
         </a>
         .
@@ -102,7 +102,7 @@ const config: DocsThemeConfig = {
       <>
         <meta
           property="og:url"
-          content={`${process.env.NEXT_PUBLIC_BASE_URL}${asPath} `}
+          content={`${process.env.VERCEL_URL}${asPath} `}
         />
         <meta
           property="og:description"

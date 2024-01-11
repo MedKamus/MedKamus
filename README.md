@@ -1,23 +1,17 @@
-# Nextra Docs Template 
+# MEDKAMUS.ID
 
-This is a template for creating documentation with [Nextra](https://nextra.site).
+Selamat datang di situs web kami, sumber terpercaya untuk Kamus Medis dan Kedokteran Online.
 
-[**Live Demo →**](https://nextra-docs-template.vercel.app)
+Kami berkomitmen untuk menyediakan informasi medis yang akurat, lengkap, mudah diakses, dan tentu saja gratis bagi sejawat sekalian.
 
-[![](.github/screenshot.png)](https://nextra-docs-template.vercel.app)
+Teman-teman sejawat dapat menemukan ribuan istilah medis (**saat ini masih dalam tahap pengembangan**) dan terminologi kesehatan di sini dengan cepat dan praktis.
 
-## Quick Start
+Dengan navigasi yang sederhana dan tampilan yang ramah pengguna, kami siap membantu Anda dalam perjalanan pencarian informasi kesehatan yang Anda butuhkan. Terima kasih atas kunjungan Anda, dan kami berharap Anda akan merasa nyaman dan mendapatkan manfaat maksimal dari layanan kami."
 
-Click the button to clone this repository and deploy it on Vercel:
+Beberapa waktu kedepan kami akan membuka kolom kontribusi sehingga rekan-rekan
+sejawat lainnya dapat melakukan _submission_, perbaikan, dan saran terhadap
+konten di MedKamus
 
-[![](https://vercel.com/button)](https://vercel.com/new/clone?s=https%3A%2F%2Fgithub.com%2Fshuding%2Fnextra-docs-template&showOptionalTeamCreation=false)
+---
 
-## Local Development
-
-First, run `pnpm i` to install the dependencies.
-
-Then, run `pnpm dev` to start the development server and visit localhost:3000.
-
-## License
-
-This project is licensed under the MIT License.
+_Jika sejawat menemukan kesalahan dalam pengindeksan kami, sejawat dapat memberikan informasi melalui halaman kontak_

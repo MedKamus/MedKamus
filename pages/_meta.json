@@ -1,15 +1,47 @@
 {
-  "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
+  "*": {
+    "theme": {
+      "breadcrumb": false,
+      "footer": true,
+      "sidebar": true,
+      "toc": true,
+      "pagination": true
+    }
+  },
+  "index": {
+    "title": "🏠 Beranda",
+    "theme": {
+      "breadcrumb": false,
+      "footer": true,
+      "sidebar": true,
+      "toc": false,
+      "pagination": false,
+      "layout": "full"
+    }
+  },
+  "blog": {
+    "title": "📑 News",
+    "theme": {
+      "breadcrumb": false,
+      "footer": true,
+      "sidebar": true,
+      "toc": false,
+      "pagination": false,
+      "layout": "full"
+    }
+  },
+  "indeksSeparator": {
+    "title": "🔠 INDEKS",
+    "type": "separator"
+  },
   "about": {
-    "title": "About",
+    "title": "Tentang Kami",
     "type": "page"
   },
   "contact": {
     "title": "Contact ↗",
     "type": "page",
-    "href": "https://twitter.com/shuding_",
+    "href": "https://github.com/MedKamus/MedKamus",
     "newWindow": true
   }
 }

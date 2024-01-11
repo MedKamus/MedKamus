@@ -13,7 +13,7 @@ const config: DocsThemeConfig = {
         alt={process.env.NEXT_PUBLIC_WEB_TITLE}
       />
       <span style={{ marginLeft: ".4em", fontWeight: 700 }}>
-        {process.env.NEXT_PUBLIC_WEB_TITLE.toUpperCase()}
+        {process.env.NEXT_PUBLIC_WEB_TITLE.toLocaleUpperCase()}
       </span>
     </>
   ),

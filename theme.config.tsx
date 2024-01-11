@@ -96,13 +96,25 @@ const config: DocsThemeConfig = {
     }
   },
   head: () => {
-    const { asPath } = useRouter();
+    const { asPath, pathname } = useRouter();
     const { frontMatter } = useConfig();
+
+    let titleTemplate = "";
+    if (asPath == "/") {
+      titleTemplate = `${process.env.NEXT_PUBLIC_WEB_TITLE} - ${process.env.NEXT_PUBLIC_WEB_SLOGAN}`;
+    } else if (pathname == "/about") {
+      titleTemplate = `Tentang Kami | ${process.env.NEXT_PUBLIC_WEB_TITLE}`;
+    } else {
+      titleTemplate = `Arti kata '%s' – ${process.env.NEXT_PUBLIC_WEB_SLOGAN} | ${process.env.NEXT_PUBLIC_WEB_TITLE}`;
+    }
+
     return (
       <>
         <meta
           property="og:url"
-          content={`${process.env.VERCEL_URL}${asPath} `}
+          content={`${
+            process.env.VERCEL_URL || "http://localhost:3000"
+          }${asPath}`}
         />
         <meta
           property="og:description"
@@ -112,15 +124,19 @@ const config: DocsThemeConfig = {
           }
         />
         <meta property="og:type" content="website" />
-        <meta
-          property="og:title"
-          content="Meta Tags — Preview, Edit and Generate"
-        />
-        <meta
+
+        <meta property="og:title" content={titleTemplate} />
+        {/* <meta
           property="og:image"
           content={`${
             process.env.VERCEL_URL ? "https://" + process.env.VERCEL_URL : ""
           }/api/og?title=${frontMatter.title}`}
+        /> */}
+        <meta
+          property="og:image"
+          content={`${
+            process.env.VERCEL_URL || "http://localhost:3000"
+          }/MedKamus_Banner.png`}
         />
       </>
     );

@@ -3,13 +3,6 @@ import { useRouter } from "next/router";
 import { useConfig, DocsThemeConfig } from "nextra-theme-docs";
 import Image from "next/image";
 
-const siteData = {
-  WEB_URL: "http://localhost:3000",
-  WEB_TITLE: "MedKamus.id",
-  WEB_TITLE_WITHOUT_DOMAIN: "MedKamus",
-  WEB_SLOGAN: "Kamus Medis dan Kedokteran Online",
-};
-
 const config: DocsThemeConfig = {
   logo: (
     <>
@@ -17,10 +10,10 @@ const config: DocsThemeConfig = {
         src="/MedKamus_New.png"
         width={35}
         height={35}
-        alt={siteData.WEB_TITLE}
+        alt={process.env.NEXT_PUBLIC_WEB_TITLE}
       />
       <span style={{ marginLeft: ".4em", fontWeight: 700 }}>
-        {siteData.WEB_TITLE.toUpperCase()}
+        {process.env.NEXT_PUBLIC_WEB_TITLE.toUpperCase()}
       </span>
     </>
   ),
@@ -70,7 +63,8 @@ const config: DocsThemeConfig = {
     key: "medkamus-banner",
     text: (
       <a href="/about" target="_blank">
-        ⚡ {siteData.WEB_TITLE_WITHOUT_DOMAIN} in development... | Read more →
+        ⚡ {process.env.NEXT_PUBLIC_WEB_TITL_WITHOUT_DOMAIN} in development... |
+        Read more →
       </a>
     ),
   },
@@ -78,8 +72,8 @@ const config: DocsThemeConfig = {
     text: (
       <span>
         {new Date().getFullYear()} ©{" "}
-        <a href="https://medkamus.id" target="_blank">
-          {siteData.WEB_TITLE}
+        <a href={process.env.NEXT_PUBLIC_BASE_URL} target="_blank">
+          {process.env.NEXT_PUBLIC_WEB_TITLE}
         </a>
         .
       </span>
@@ -89,15 +83,15 @@ const config: DocsThemeConfig = {
     const { asPath, pathname } = useRouter();
     if (asPath == "/") {
       return {
-        titleTemplate: `${siteData.WEB_TITLE} - ${siteData.WEB_SLOGAN}`,
+        titleTemplate: `${process.env.NEXT_PUBLIC_WEB_TITLE} - ${process.env.NEXT_PUBLIC_WEB_SLOGAN}`,
       };
     } else if (pathname == "/about") {
       return {
-        titleTemplate: `Tentang Kami | ${siteData.WEB_TITLE}`,
+        titleTemplate: `Tentang Kami | ${process.env.NEXT_PUBLIC_WEB_TITLE}`,
       };
     } else {
       return {
-        titleTemplate: `Arti kata '%s' – ${siteData.WEB_SLOGAN} | ${siteData.WEB_TITLE}`,
+        titleTemplate: `Arti kata '%s' – ${process.env.NEXT_PUBLIC_WEB_SLOGAN} | ${process.env.NEXT_PUBLIC_WEB_TITLE}`,
       };
     }
   },
@@ -106,7 +100,10 @@ const config: DocsThemeConfig = {
     const { frontMatter } = useConfig();
     return (
       <>
-        <meta property="og:url" content={`${siteData.WEB_URL}${asPath} `} />
+        <meta
+          property="og:url"
+          content={`${process.env.NEXT_PUBLIC_BASE_URL}${asPath} `}
+        />
         <meta
           property="og:description"
           content={

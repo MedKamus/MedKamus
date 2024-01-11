@@ -15,3 +15,5 @@ konten di MedKamus
 ---
 
 _Jika sejawat menemukan kesalahan dalam pengindeksan kami, sejawat dapat memberikan informasi melalui halaman kontak_
+
+_Terima Kasih_

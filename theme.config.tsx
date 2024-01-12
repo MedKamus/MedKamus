@@ -71,7 +71,7 @@ const config: DocsThemeConfig = {
     text: (
       <span>
         {new Date().getFullYear()} ©{" "}
-        <a href={process.env.VERCEL_URL} target="_blank">
+        <a href={process.env.NEXT_PUBLIC_URL} target="_blank">
           {process.env.NEXT_PUBLIC_WEB_TITLE}
         </a>
         .
@@ -121,7 +121,7 @@ const config: DocsThemeConfig = {
         <link
           rel="shortcut icon"
           href={`${
-            process.env.VERCEL_URL || "http://localhost:3000"
+            process.env.NEXT_PUBLIC_URL || "http://localhost:3000"
           }/MedKamus_New_Outlined_Icon.png`}
           type="image/x-icon"
         />
@@ -138,14 +138,14 @@ const config: DocsThemeConfig = {
         <meta
           property="og:url"
           content={`${
-            process.env.VERCEL_URL || "http://localhost:3000"
+            process.env.NEXT_PUBLIC_URL || "http://localhost:3000"
           }${asPath}`}
         />
         <meta property="og:title" content={titleTemplate} />
         {/* <meta
           property="og:image"
           content={`${
-            process.env.VERCEL_URL ? "https://" + process.env.VERCEL_URL : ""
+            process.env.NEXT_PUBLIC_URL ? "https://" + process.env.NEXT_PUBLIC_URL : ""
           }/api/og?title=${frontMatter.title}`}
         /> */}
         <meta
@@ -158,7 +158,7 @@ const config: DocsThemeConfig = {
         <meta
           property="og:image"
           content={`${
-            process.env.VERCEL_URL || "http://localhost:3000"
+            process.env.NEXT_PUBLIC_URL || "http://localhost:3000"
           }/MedKamus_Banner.png`}
         />
         <meta property="og:image:width" content="1200" />
@@ -169,7 +169,7 @@ const config: DocsThemeConfig = {
         <meta
           property="twitter:url"
           content={`${
-            process.env.VERCEL_URL || "http://localhost:3000"
+            process.env.NEXT_PUBLIC_URL || "http://localhost:3000"
           }${asPath}`}
         />
         <meta property="twitter:title" content={titleTemplate} />
@@ -183,7 +183,7 @@ const config: DocsThemeConfig = {
         <meta
           property="twitter:image"
           content={`${
-            process.env.VERCEL_URL || "http://localhost:3000"
+            process.env.NEXT_PUBLIC_URL || "http://localhost:3000"
           }/MedKamus_Banner.png`}
         />
         <meta
@@ -194,7 +194,7 @@ const config: DocsThemeConfig = {
         <meta
           name="msapplication-TileImage"
           content={`${
-            process.env.VERCEL_URL || "http://localhost:3000"
+            process.env.NEXT_PUBLIC_URL || "http://localhost:3000"
           }/MedKamus_Banner.png`}
         />
       </>

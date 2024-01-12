@@ -15,18 +15,18 @@
       "footer": true,
       "sidebar": true,
       "toc": false,
-      "pagination": false,
+      "pagination": true,
       "layout": "full"
     }
   },
   "blog": {
-    "title": "📑 News",
+    "title": "📑 Blog",
     "theme": {
       "breadcrumb": false,
       "footer": true,
       "sidebar": true,
       "toc": false,
-      "pagination": false,
+      "pagination": true,
       "layout": "full"
     }
   },

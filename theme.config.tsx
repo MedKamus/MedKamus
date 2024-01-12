@@ -28,7 +28,6 @@ const config: DocsThemeConfig = {
       </>
     );
   },
-  faviconGlyph: "⚕",
   docsRepositoryBase: "https://github.com/MedKamus/MedKamus",
   primaryHue: 320,
   primarySaturation: 100,
@@ -81,6 +80,8 @@ const config: DocsThemeConfig = {
   },
   useNextSeoProps() {
     const { asPath, pathname } = useRouter();
+    const { frontMatter } = useConfig();
+
     if (asPath == "/") {
       return {
         titleTemplate: `${process.env.NEXT_PUBLIC_WEB_TITLE} - ${process.env.NEXT_PUBLIC_WEB_SLOGAN}`,
@@ -89,9 +90,13 @@ const config: DocsThemeConfig = {
       return {
         titleTemplate: `Tentang Kami | ${process.env.NEXT_PUBLIC_WEB_TITLE}`,
       };
+    } else if (pathname == "/blog") {
+      return {
+        titleTemplate: `Blog | ${process.env.NEXT_PUBLIC_WEB_TITLE}`,
+      };
     } else {
       return {
-        titleTemplate: `Arti kata '%s' – ${process.env.NEXT_PUBLIC_WEB_SLOGAN} | ${process.env.NEXT_PUBLIC_WEB_TITLE}`,
+        titleTemplate: `Arti kata ${frontMatter.title} – ${process.env.NEXT_PUBLIC_WEB_SLOGAN} | ${process.env.NEXT_PUBLIC_WEB_TITLE}`,
       };
     }
   },
@@ -104,27 +109,38 @@ const config: DocsThemeConfig = {
       titleTemplate = `${process.env.NEXT_PUBLIC_WEB_TITLE} - ${process.env.NEXT_PUBLIC_WEB_SLOGAN}`;
     } else if (pathname == "/about") {
       titleTemplate = `Tentang Kami | ${process.env.NEXT_PUBLIC_WEB_TITLE}`;
+    } else if (pathname == "/blog") {
+      titleTemplate = `Blog | ${process.env.NEXT_PUBLIC_WEB_TITLE}`;
     } else {
-      titleTemplate = `Arti kata '%s' – ${process.env.NEXT_PUBLIC_WEB_SLOGAN} | ${process.env.NEXT_PUBLIC_WEB_TITLE}`;
+      titleTemplate = `Arti kata ${frontMatter.title} – ${process.env.NEXT_PUBLIC_WEB_SLOGAN} | ${process.env.NEXT_PUBLIC_WEB_TITLE}`;
     }
 
     return (
       <>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+          rel="shortcut icon"
+          href={`${
+            process.env.VERCEL_URL || "http://localhost:3000"
+          }/MedKamus_New_Outlined_Icon.png`}
+          type="image/x-icon"
+        />
+        <meta property="title" content={titleTemplate} />
+        <meta
+          property="description"
+          content={
+            frontMatter.description ||
+            "Terminologi kedokteran, kesehatan, medis, dan serupanya yang terlengkap Bahasa Indonesia"
+          }
+        />
+
+        <meta property="og:type" content="website" />
         <meta
           property="og:url"
           content={`${
             process.env.VERCEL_URL || "http://localhost:3000"
           }${asPath}`}
         />
-        <meta
-          property="og:description"
-          content={
-            frontMatter.description ||
-            "Terminologi kedokteran, kesehatan, medis, dan serupanya yang terlengkap Bahasa Indonesia"
-          }
-        />
-        <meta property="og:type" content="website" />
-
         <meta property="og:title" content={titleTemplate} />
         {/* <meta
           property="og:image"
@@ -133,7 +149,50 @@ const config: DocsThemeConfig = {
           }/api/og?title=${frontMatter.title}`}
         /> */}
         <meta
+          property="og:description"
+          content={
+            frontMatter.description ||
+            "Terminologi kedokteran, kesehatan, medis, dan serupanya yang terlengkap Bahasa Indonesia"
+          }
+        />
+        <meta
           property="og:image"
+          content={`${
+            process.env.VERCEL_URL || "http://localhost:3000"
+          }/MedKamus_Banner.png`}
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/png" />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+          property="twitter:url"
+          content={`${
+            process.env.VERCEL_URL || "http://localhost:3000"
+          }${asPath}`}
+        />
+        <meta property="twitter:title" content={titleTemplate} />
+        <meta
+          property="twitter:description"
+          content={
+            frontMatter.description ||
+            "Terminologi kedokteran, kesehatan, medis, dan serupanya yang terlengkap Bahasa Indonesia"
+          }
+        />
+        <meta
+          property="twitter:image"
+          content={`${
+            process.env.VERCEL_URL || "http://localhost:3000"
+          }/MedKamus_Banner.png`}
+        />
+        <meta
+          name="robots"
+          content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+        />
+        <meta property="og:locale" content="in_ID" />
+        <meta
+          name="msapplication-TileImage"
           content={`${
             process.env.VERCEL_URL || "http://localhost:3000"
           }/MedKamus_Banner.png`}
